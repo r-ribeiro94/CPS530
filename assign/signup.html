@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/forms.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<title>Sign Up</title>
+
+  <script>
+    function validateForm(form){
+      var messages = [];
+      var user = document.form.user.value;
+      var pass = document.form.pass.value;
+      var pass2 = document.form.pass2.value;
+      var email = document.form.email.value;
+      var email2 = document.form.email2.value;
+      if(user == "" || user == null || !user.match(/^[a-zA-Z0-9_-]{6,16}$/)){
+        messages.push("Please enter a valid username.");
+      }
+      if(pass == "" || pass == null || !pass.match(/^[a-zA-Z0-9_-]{6,16}$/)){
+        messages.push("Please enter a valid password.");
+      }
+      if(email == "" || pass2 == null || pass2 != pass || !pass.match(/^[a-zA-Z0-9_-]{6,16}$/)){
+        messages.push("Your password doesn't match.");
+      }
+      if(email == "" || email == null || !email.match(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/)){
+        messages.push("Please enter a valid email.");
+      }
+      if(email2 == "" || email2 == null || 
+        email2!= email ||!email2.match(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/)){
+        messages.push("Your email doesn't match.")  ;
+      }
+      if (messages.length > 0){
+        alert(messages.join('\n'));
+        return false;
+      }else {
+        return true;
+      }
+    }
+  </script>
+</head>
+
+<body>
+  	<div class="nav">
+		<div class="container">
+			<ul class="pull-right">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="login.html">Log In</a></li>
+			</ul>
+		</div>
+	</div>
+
+  <div id="centered"> 
+  <div class = "form_container">
+  			<form name="form" onsubmit="return validateForm()" method="post" 
+        action="php/register.php" id="signup">
+        <div class="header">
+          <h1>Register</h1>
+        </div>
+    			<div class="sep"></div>
+          <div class="inputs">
+          <input type="text" name="user" placeholder="Username">
+    			<input type="password" name="pass" placeholder="Password">
+    	    <input type="password" name="pass2" placeholder="Re-Enter Password">
+    			<input type="email" name="email" placeholder="E-Mail">
+    			<input type="email" name="email2" placeholder="Re-Enter E-Mail Address">
+    			<input type="submit" id="submit" value="Create">
+          </div>
+      </form>
+	</div>
+</div>
+</body>
+</html>

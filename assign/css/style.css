@@ -1,0 +1,17 @@
+@font-face{
+	font-family: Mohave;
+	src: url(../fonts/Mohave.otf);
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	background-image: url('../images/pop_background2.jpg');  
+}
+
+h1{
+	color: white;
+	text-align: center;
+	font-family: 'Mohave', sans-serif;
+}

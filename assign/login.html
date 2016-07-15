@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/forms.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<title>Login</title>
+
+	<script>
+
+		function validateForm(){
+
+			var messages = [];
+			var user = document.form.user.value;
+			var pass = document.form.pass.value;
+
+			if(user == "" || user == null){
+       		 	messages.push("Please enter a valid username.");
+      		}else{
+        		messages.push("That is not a valid username.");
+      		}
+     		if(pass == "" || pass == null){
+        		messages.push("Please enter a valid password.");
+      		}
+      		if(messages.length > 0){
+      			alert(messages.join('\n'));
+      			return false;
+      		}else {
+      			return true;
+      		}
+		}
+	</script>
+
+</head>
+
+<body>
+	
+  	<div class="nav">
+		<div class="container">
+			<ul class="pull-right">
+				<li><a href="index.html">Home</a></li>
+			</ul>
+		</div>
+	</div>
+
+  <div id="centered"> 
+  <div class = "form_container">
+  		<form name="form" onsubmit="return validateForm()" method="post" id="signup">
+        <div class="header">
+          <h1>Login</h1>
+        </div>
+    	<div class="sep"></div>
+        <div class="inputs">
+        	<input type="text" name="user" placeholder="Username">
+    		<input type="password" name="pass" placeholder="Password">
+    		<input type="submit" id="submit" value="Create">
+        	<div id="helper"><a href="signup.html">Sign Up</a> - <a href="#">Forgot Password?</a></div>
+        </div>
+      </form>
+
+	</div>
+</div>
+</body>
+</html>
